@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recap/data/notifires.dart';
 import 'package:recap/views/welcom_page.dart';
-import 'package:recap/views/widget_tree.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +24,7 @@ class _MyAppState extends State<MyApp> {
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
               seedColor: Colors.teal,
-              brightness: value == true ? Brightness.dark : Brightness.light,
+              brightness: value == true ? Brightness.light : Brightness.dark,
             ),
           ),
           home: WelcomePage(),

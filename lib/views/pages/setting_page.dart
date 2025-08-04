@@ -29,6 +29,55 @@ class _SettingPageState extends State<SettingPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              ElevatedButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Snackbar"),
+                      duration: Duration(seconds: 5),
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                },
+                child: Text("SnackBar"),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AboutDialog();
+                    },
+                  );
+                },
+                child: Text("About"),
+              ),
+              Divider(
+                thickness: 5.0,
+                //endIndent: 200,
+              ),
+              FilledButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text("Alert"),
+                        content: Text("You pressed wrong button"),
+                        actions: [
+                          OutlinedButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text("close"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Text("Alert"),
+              ),
               TextField(
                 controller: controller,
                 decoration: InputDecoration(border: OutlineInputBorder()),
